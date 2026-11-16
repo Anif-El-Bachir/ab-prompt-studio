@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0a0b;
+  --color-surface: #111113;
+  --color-raised: #17171a;
+  --color-line: #232327;
+  --color-line-strong: #2f2f35;
+  --color-fg: #ececee;
+  --color-muted: #8d8d96;
+  --color-faint: #5c5c64;
+  --color-accent: #d6c49b;
+  --color-accent-strong: #e8d9b5;
+  --color-accent-ink: #1a160d;
+  --color-ok: #7fb89a;
+  --color-warn: #d4a85a;
+  --color-bad: #d47a6f;
+  --color-info: #8aa9d4;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --radius-card: 14px;
+  --animate-fade-in: fade-in 0.35s ease-out both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+:root { color-scheme: dark; }
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "cv11";
+}
+
+::selection { background: color-mix(in srgb, var(--color-accent) 35%, transparent); }
+
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Scrollbars discretas */
+* { scrollbar-width: thin; scrollbar-color: var(--color-line-strong) transparent; }
+
+textarea { resize: vertical; }
+
+.prose-prompt {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+dialog::backdrop { background: rgb(0 0 0 / 0.6); backdrop-filter: blur(2px); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

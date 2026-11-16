@@ -1,0 +1,10 @@
+# Nunca enviar segredos nem ficheiros locais para o Vercel.
+# As chaves são definidas como variáveis de ambiente do projeto no Vercel.
+.env
+.env.local
+.env.*.local
+*.ps1
+node_modules
+.next
+tests
+publicar-vercel.log
